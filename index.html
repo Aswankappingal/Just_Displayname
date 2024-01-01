@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         input{
+            margin-top: 20px;
+            padding: 10px 30px;
+            border-radius: 10px;
+            background-color: rgb(206, 246, 254);
+            border: none;
+            font-size: 24px;
+         } 
+         ::placeholder{
+            font-size: 23px;
+
+         } 
+         button{
+            padding: 8px 20px;
+            background-color: #f9f7f3;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 22px;
+            color: #565552;
+
+         }
+         button:hover{
+            background-color: azure;
+            color: black;
+            border: 1px solid black;
+         }
+        .card{
+            border: 1px solid black;
+            width: 20%;
+            height: 200px;
+            background-color: rgb(206, 246, 254);
+            margin-top: 10px;
+            border: 1px solid rgb(248, 248, 193);
+           
+        }
+        body{
+            background-color: rgb(255, 255, 255);
+            height: 600px;
+            text-align: center;
+
+        }
+        #data{
+            display: flex;
+            gap: 20px;
+            margin-left: 20pxx;
+        }
+        #card-data{
+            font-size: 29px;
+            text-align: center;
+            padding-top: 30px;
+        }
+        #button-only{
+            margin-top: 30%;
+            background-color: #f9f7f3;
+        }
+        #button-only:hover{
+            background-color: rgb(243, 243, 188);
+            color: rgb(26, 25, 25);
+        }
+     </style>
+</head>
+<body>
+    <input type="text" id="inp" placeholder="Enter a Value">
+    <button id="btn" onclick="task()">Click</button>
+    <div id="data">
+         
+    </div>
+    <script>
+        ar=[]
+        function show(){
+            s="";
+           ar.map((dt,index)=>{
+             s+=` <div class="card" id="card-data">${dt}    
+            <div> <button id="button-only" onclick="Delete(${index})">Delete</button>
+                  <button id="button-only" onclick="Edit(${index})">Edit</button></div></div>
+             `  
+            document.getElementById("data").innerHTML=s   
+           })
+         
+
+         }
+        function task(){
+            let inp=document.getElementById("inp")
+            let val=inp.value;
+            ar.push(val);
+            console.log(ar); 
+            // document.getElementById("card-data").innerHTML=ar  
+            show()
+           
+            
+        }
+       
+         function Delete(index){
+            ar.splice(index, 1);
+            show();
+        }
+
+        function Edit(index) {
+            ar.splice(index, 1);
+            show();
+            
+        }
+         
+ 
+
+
+    </script>
+    
+</body>
+</html>
